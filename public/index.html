@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Da'wah Platform | Learn About Islam</title>
+    <meta name="description" content="Complete Islamic learning platform with authentic knowledge, Quran, Prayer times, and scholar guidance">
+    <meta name="keywords" content="Islam, Quran, Muslim, Islamic education, Da'wah, Prophet Muhammad, Prayer">
+    <meta name="author" content="YerooTechno">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #166534;
+            --dark-green: #14532d;
+            --light-green: #22c55e;
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --white: #FFFFFF;
+            --light-bg: #f8fafc;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(22, 101, 52, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-sub {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            background: rgba(22, 101, 52, 0.1);
+            color: var(--primary-green);
+        }
+
+        .nav-link.active {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(22, 101, 52, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 2rem 60px;
+            background: linear-gradient(135deg, 
+                rgba(22, 101, 52, 0.05) 0%, 
+                rgba(255, 255, 255, 0) 50%),
+                url('https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Registration Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.1);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .form-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-link:hover {
+            text-decoration: underline;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* What is Islam Section */
+        .islam-section {
+            background: white;
+        }
+
+        .islam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .islam-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .islam-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .card-content {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Religions Comparison */
+        .religions-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+        }
+
+        .religions-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            padding: 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            align-items: center;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .religion-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .religion-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .islam-icon { background: var(--primary-green); }
+        .christian-icon { background: #3b82f6; }
+        .jewish-icon { background: #f59e0b; }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-green);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+
+        .developer-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .developer-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-green);
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content {
+                padding: 2.5rem;
+            }
+            
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 4rem 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .religion-name {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="logo-text">
+                    Islamic Da'wah
+                    <span class="logo-sub">Platform</span>
+                </div>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="#islam" class="nav-link"><i class="fas fa-info-circle"></i> What is Islam?</a>
+                <a href="#prophet" class="nav-link"><i class="fas fa-user"></i> Prophet Muhammad</a>
+                <a href="#religions" class="nav-link"><i class="fas fa-globe"></i> Religions Comparison</a>
+                <a href="#quran" class="nav-link"><i class="fas fa-book-quran"></i> Quran</a>
+                <a href="#prayer" class="nav-link"><i class="fas fa-clock"></i> Prayer Times</a>
+                <a href="#questions" class="nav-link"><i class="fas fa-question-circle"></i> Ask Questions</a>
+            </div>
+            
+            <div class="auth-buttons">
+                <button class="btn btn-outline" onclick="openLoginModal()">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="btn btn-primary" onclick="openRegisterModal()">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Islamic Da'wah Platform</h1>
+                <p class="hero-subtitle">
+                    Discover the beautiful message of Islam through authentic knowledge, 
+                    learn about Prophet Muhammad (PBUH), understand Islamic teachings, 
+                    and get your questions answered by qualified scholars.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Authentic Knowledge</h4>
+                            <p>Verified by Islamic scholars</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Multi-language</h4>
+                            <p>English, Arabic, Amharic, Oromo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Community</h4>
+                            <p>Connect with Muslims worldwide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Free Education</h4>
+                            <p>Complete Islamic courses</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openRegisterModal()">
+                        <i class="fas fa-user-plus"></i> Join Free
+                    </button>
+                    <button class="btn btn-outline" onclick="window.location.href='#islam'">
+                        <i class="fas fa-play-circle"></i> Learn Islam
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What is Islam Section -->
+    <section class="section islam-section" id="islam">
+        <div class="section-title">
+            <h2>What is Islam?</h2>
+            <p>Understanding the message of peace, submission to God, and complete way of life</p>
+        </div>
+        
+        <div class="islam-grid">
+            <div class="islam-card">
+                <div class="card-icon">
+                    <i class="fas fa-pray"></i>
+                </div>
+                <h3 class="card-title">Meaning of Islam</h3>
+                <p class="card-content">
+                    Islam means "submission to the will of God." It's a monotheistic religion 
+                    revealed to Prophet Muhammad (PBUH) through the Quran. Muslims believe in 
+                    one God (Allah) and that Muhammad is His final messenger.
+                </p>
+            </div>
+            
+            <div class="islam-card">
+                <div class="card-icon">
+                    <i class="fas fa-pillar"></i>
+                </div>
+                <h3 class="card-title">Five Pillars</h3>
+                <p class="card-content">
+                    1. Shahadah (Faith declaration)<br>
+                    2. Salah (Five daily prayers)<br>
+                    3. Zakat (Charity to the poor)<br>
+                    4. Sawm (Fasting in Ramadan)<br>
+                    5. Hajj (Pilgrimage to Mecca)
+                </p>
+            </div>
+            
+            <div class="islam-card">
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="card-title">Core Beliefs</h3>
+                <p class="card-content">
+                    • Belief in One God (Allah)<br>
+                    • Belief in all Prophets from Adam to Muhammad<br>
+                    • Belief in Holy Books (Quran, Torah, Gospel)<br>
+                    • Belief in Angels<br>
+                    • Belief in Day of Judgment<br>
+                    • Belief in Divine Decree
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Religions Comparison Section -->
+    <section class="section religions-section" id="religions">
+        <div class="section-title">
+            <h2>Religions Comparison</h2>
+            <p>Understanding Islam in relation to other major world religions</p>
+        </div>
+        
+        <div class="religions-table">
+            <div class="table-header">
+                <div>Aspect</div>
+                <div>Islam</div>
+                <div>Christianity</div>
+                <div>Judaism</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="religion-name">
+                    <div class="religion-icon islam-icon">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <span>Concept of God</span>
+                </div>
+                <div>One God (Allah)</div>
+                <div>Trinity (Father, Son, Holy Spirit)</div>
+                <div>One God (Yahweh)</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="religion-name">
+                    <div class="religion-icon islam-icon">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <span>Holy Book</span>
+                </div>
+                <div>Quran</div>
+                <div>Bible</div>
+                <div>Torah</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="religion-name">
+                    <div class="religion-icon christian-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <span>View of Jesus</span>
+                </div>
+                <div>Prophet of God</div>
+                <div>Son of God, Savior</div>
+                <div>Prophet (not Messiah)</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="religion-name">
+                    <div class="religion-icon jewish-icon">
+                        <i class="fas fa-star-of-david"></i>
+                    </div>
+                    <span>Final Prophet</span>
+                </div>
+                <div>Muhammad (PBUH)</div>
+                <div>Jesus Christ</div>
+                <div>Moses</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="religion-name">
+                    <div class="religion-icon islam-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <span>Prayer Direction</span>
+                </div>
+                <div>Towards Kaaba (Mecca)</div>
+                <div>No specific direction</div>
+                <div>Towards Jerusalem</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeRegisterModal()">&times;</button>
+                <h3>Create Account</h3>
+                <p>Join our Islamic learning community</p>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" id="regName" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="regEmail" placeholder="example@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" id="regPhone" placeholder="+251 71 846 1632">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Country</label>
+                        <select class="form-input" id="regCountry">
+                            <option value="">Select country</option>
+                            <option value="ethiopia">Ethiopia</option>
+                            <option value="usa">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="canada">Canada</option>
+                            <option value="saudi">Saudi Arabia</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" id="regPassword" placeholder="Create strong password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-input" id="regConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" class="form-link" onclick="openLoginModal()">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeLoginModal()">&times;</button>
+                <h3>Login to Account</h3>
+                <p>Welcome back to Islamic Da'wah Platform</p>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="loginEmail" placeholder="example@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-sign-in-alt"></i> Login to Account
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" class="form-link" onclick="openRegisterModal()">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Islamic Da'wah Platform</h4>
+                <p>Spreading authentic Islamic knowledge and promoting peace through education.</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-telegram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#islam">What is Islam?</a></li>
+                    <li><a href="#prophet">Prophet Muhammad</a></li>
+                    <li><a href="#religions">Religions Comparison</a></li>
+                    <li><a href="#quran">Quran Reader</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#prayer">Prayer Times</a></li>
+                    <li><a href="#questions">Ask Questions</a></li>
+                    <li><a href="#">Islamic Courses</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Videos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> yeroonur12@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +251 71 846 1632</li>
+                    <li><i class="fab fa-telegram"></i> @MedquizP</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ethiopia</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Islamic Da'wah Platform. All rights reserved.</p>
+            <div class="developer-info">
+                <div class="developer-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <p>Developed by <strong>YerooTechno</strong></p>
+                    <p style="font-size: 0.9rem;">Bank: CBE 1000413257429 | Name: Yeroo Nur</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        
+        // Modal functions
+        function openRegisterModal() {
+            document.getElementById('registerModal').classList.add('active');
+        }
+        
+        function closeRegisterModal() {
+            document.getElementById('registerModal').classList.remove('active');
+        }
+        
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('active');
+            closeRegisterModal();
+        }
+        
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.remove('active');
+        }
+        
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+        
+        // Registration form submission
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const country = document.getElementById('regCountry').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password,
+                        phone,
+                        country
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Registration successful! Please login.');
+                    closeRegisterModal();
+                    openLoginModal();
+                } else {
+                    alert('Error: ' + (data.error || 'Registration failed'));
+                }
+            } catch (error) {
+                alert('Network error. Please check your connection.');
+                console.error('Registration error:', error);
+            }
+        });
+        
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Save token and user data
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    alert('Login successful! Welcome ' + data.user.name);
+                    closeLoginModal();
+                    
+                    // Update UI for logged in user
+                    updateAuthUI(data.user);
+                    
+                    // Redirect admin to admin panel
+                    if (data.user.user_type === 'admin') {
+                        window.location.href = '/admin/index.html';
+                    }
+                } else {
+                    alert('Error: ' + (data.error || 'Login failed'));
+                }
+            } catch (error) {
+                alert('Network error. Please check your connection.');
+                console.error('Login error:', error);
+            }
+        });
+        
+        // Update UI based on authentication
+        function updateAuthUI(user) {
+            const authButtons = document.querySelector('.auth-buttons');
+            if (user) {
+                authButtons.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <span style="font-weight: 500;">Welcome, ${user.name}</span>
+                        <button class="btn btn-outline" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Check if user is already logged in
+        function checkAuthStatus() {
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || 'null');
+            
+            if (token && user) {
+                updateAuthUI(user);
+            }
+        }
+        
+        // Logout function
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            location.reload();
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthStatus();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+                  </html>
